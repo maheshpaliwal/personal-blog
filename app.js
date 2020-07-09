@@ -10,8 +10,8 @@ const PrismicConfig = require('./prismic-configuration');
 const PORT = app.get('port');
 const UIhelpers = require('./includes/UIhelpers');
 
-app.listen(PORT, () => {
-  process.stdout.write(`server at: http://localhost:${PORT}\n`);
+app.listen(80, () => {
+  process.stdout.write(`server at: http://localhost:`);
 });
 
 // Middleware to connect to inject prismic context
