@@ -10,7 +10,7 @@ const PrismicConfig = require('./prismic-configuration');
 const PORT = app.get('port');
 const UIhelpers = require('./includes/UIhelpers');
 
-app.listen(80, () => {
+app.listen(3000, () => {
   process.stdout.write(`server at: http://localhost:`);
 });
 
