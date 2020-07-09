@@ -1,0 +1,38 @@
+extends ./layout.pug
+
+block title
+  title !{PrismicDOM.RichText.asText(bloghome.data.headline)}
+
+block body
+  body.page
+    div.home
+      div.blog-avatar(style='background-image: url(' + bloghome.data.image.url + ');')
+      h1.blog-title !{PrismicDOM.RichText.asText(bloghome.data.headline)}
+      p.blog-description !{PrismicDOM.RichText.asText(bloghome.data.description)}
+    #colorlib-main
+     section.ftco-section.ftco-no-pt.ftco-no-pb
+      .container
+        .row.d-flex
+          .col-xl-8.py-5.px-md-5
+            .row.pt-md-4
+              .col-md-12
+                for post in posts
+                  h3.mb-2
+                      a(href=ctx.linkResolver(post))
+                        != PrismicDOM.RichText.asText(post.data.title)
+                  .meta-wrap
+                    p.meta
+                      span
+                        i.icon-calendar.mr-2
+                        - var date = UIhelpers.getDate(post)
+                        span.created-at !{date}
+                      
+
+                    p.mb-4
+                      - var firstParagraph = UIhelpers.getFirstParagraph(post)
+                      - var textLimit = 300
+                      - var limitedText = firstParagraph.substr(0, textLimit)
+                      if firstParagraph.length > textLimit
+                        = limitedText.substr(0, limitedText.lastIndexOf(' ')) + '...'
+                      else
+                        = firstParagraph
