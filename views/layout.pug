@@ -46,24 +46,24 @@ head
   script(src='/js/main.js')
 
 body
-  block body
   #colorlib-page
-  a.js-colorlib-nav-toggle.colorlib-nav-toggle(href='#')
-    i
-  aside#colorlib-aside.js-fullheight(role='complementary')
-    nav#colorlib-main-menu(role='navigation')
-      ul
-        li.colorlib-active
-          a(href='/') Home
-    .colorlib-footer
-      .mb-4
-        img(src='/images/swapcode.png' style='width:90%')
-         
-      .mb-4
-        h3 Subscribe for newsletter
-        form.colorlib-subscribe-form(action='#')
-          .form-group.d-flex
-            .icon
-              span.icon-paper-plane
-            input.form-control(type='text' placeholder='Enter Email Address')
+  nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='http://www.swapcode.in/') swapcode.in
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='/')
+            | Home 
+        li.nav-item
+          a.nav-link(href='/aws') aws
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            | Data Structures and algorithms
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='/array') Array
+            a.dropdown-item(href='/backtracking') Backtracking
+            a.dropdown-item(href='/dynamicprogramming') Dynamic Programming
+  block body
   

@@ -12,6 +12,10 @@ const UIhelpers = require('./includes/UIhelpers');
 const homeRouter=require('./routes/homeRouter')
 const dsAlgoRouter=require('./routes/dsAlgoRouter');
 const blogRouter = require('./routes/blogRouter');
+const awsRouter=require('./routes/awsRouter')
+const dpRouter=require('./routes/dynamicprogramming')
+const backtrackingRouter=require('./routes/backtracking');
+const arrayRouter=require('./routes/array');
 
 app.listen(3000, () => {
   process.stdout.write(`server at: http://localhost:`);
@@ -57,3 +61,7 @@ app.use((req, res, next) => {
 app.use('/',homeRouter);
 app.use('/ds-algo',dsAlgoRouter);
 app.use('/blog',blogRouter);
+app.use('/aws',awsRouter);
+app.use('/array',arrayRouter);
+app.use('/dynamicprogramming',dpRouter);
+app.use('/backtracking',backtrackingRouter);

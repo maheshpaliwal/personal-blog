@@ -18,7 +18,7 @@ block body
               .col-md-12
                 for post in posts
                   h3.mb-2
-                      a(href=ctx.linkResolver(post,"blog"))
+                      a(href=ctx.linkResolver(post,"aws"))
                         != PrismicDOM.RichText.asText(post.data.title)
                   .meta-wrap
                     p.meta

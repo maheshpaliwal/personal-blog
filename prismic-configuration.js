@@ -1,24 +1,21 @@
 module.exports = {
 
   apiEndpoint: 'https://blogmappie.prismic.io/api/v2',
-
-  // -- Access token if the Master is not open
-  // accessToken: 'xxxxxx',
-
-  // OAuth
-  // clientId: 'xxxxxx',
-  // clientSecret: 'xxxxxx',
-
-  // -- Links resolution rules
-  // This function will be used to generate links to Prismic.io documents
-  // As your project grows, you should update this function according to your routes
-  linkResolver(doc) {
+  linkResolver(doc,router) {
     if (doc.type == 'blog_home') {
       return '/blog';
     }
-    if (doc.type == 'post') {
+    if (doc.type == 'post' && router=='blog') {
       return '/blog/' + encodeURIComponent(doc.uid);
+    }
+    else if (doc.type == 'post' && router=='ds') {
+      return '/ds-algo/' + encodeURIComponent(doc.uid);
+    }
+    else if(doc.type=='post'&&router=='aws'){
+      return '/aws/' + encodeURIComponent(doc.uid);
+
     }
     return '/';
   }
+  
 };

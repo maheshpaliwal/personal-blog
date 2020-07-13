@@ -1,14 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const dsAlgoRouter = express.Router();
+const awsRouter = express.Router();
 const Prismic = require('prismic-javascript');
 const PrismicDOM = require('prismic-dom');
 const app = require('../config');
 const PrismicConfig = require('../prismic-configuration');
 const PORT = app.get('port');
 const UIhelpers = require('../includes/UIhelpers');
-dsAlgoRouter.use(cors())
-dsAlgoRouter.route('/')
+awsRouter.use(cors())
+awsRouter.route('/')
     .all((req, res, next) => {
       next();
     })
@@ -24,12 +24,12 @@ dsAlgoRouter.route('/')
               // Query the posts using ds-algo tag
               req.prismic.api.query(
                 [Prismic.Predicates.at("document.type", "post"),
-                Prismic.Predicates.any('document.tags', ['ds-algo'])
+                Prismic.Predicates.any('document.tags', ['aws'])
               ],
                 queryOptions
               ).then(function(response) {
                     console.log(response);    
-                res.render('dsalgohome', {
+                res.render('awshome', {
                   bloghome,
                   posts : response.results
                 });
@@ -51,7 +51,7 @@ dsAlgoRouter.route('/')
     .delete((req, res) => {
         res.status(404).render('404');
     })
-    dsAlgoRouter.route('/:uid')
+    awsRouter.route('/:uid')
     .all((req, res, next) => {
       next();
     })
@@ -83,4 +83,4 @@ dsAlgoRouter.route('/')
         res.status(404).render('404');
     })
 
-module.exports = dsAlgoRouter
+module.exports = awsRouter
