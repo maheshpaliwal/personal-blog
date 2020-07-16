@@ -23,6 +23,11 @@ block body
                   .meta-wrap
                     p.meta
                       span
+                         img.postimg(src=""+bloghome.data.image.url, alt="")
+                      span
+                        i.icon-pencil.mr-2
+                        span.created-at MAHESH PALIWAL 
+                      span
                         i.icon-calendar.mr-2
                         - var date = UIhelpers.getDate(post)
                         span.created-at !{date}
