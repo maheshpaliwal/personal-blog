@@ -1,4 +1,6 @@
 extends ./layout.pug
+block title
+  title !{PrismicDOM.RichText.asText(post.data.title)}
 block body
   body.page
     #colorlib-main
