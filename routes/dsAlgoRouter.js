@@ -18,17 +18,19 @@ dsAlgoRouter.route('/')
         
               var queryOptions = {
                 page: req.params.p || '1',
-                orderings: '[my.post.date desc]'
+                orderings: '[my.post.date desc]',
+                fetchLinks : ['author.name', 'author.picture']
               };
         
               // Query the posts using ds-algo tag
               req.prismic.api.query(
                 [Prismic.Predicates.at("document.type", "post"),
-                Prismic.Predicates.any('document.tags', ['ds-algo'])
+                Prismic.Predicates.any('document.tags', ['ds-algo']
+                )
               ],
                 queryOptions
               ).then(function(response) {
-                    console.log(response);    
+                    console.log(response.results[0].data);    
                 res.render('dsalgohome', {
                   bloghome,
                   posts : response.results

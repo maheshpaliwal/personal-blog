@@ -8,17 +8,12 @@ head
   link(href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900", rel="stylesheet", type="text/css")
   meta(name='google-site-verification' content='UZv595UiW3ctOejayEXeS7j0JlgEyK555jgAhublLRs')
   meta(name="viewport", content="width=device-width, initial-scale=1")
-  link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet')
-  link(href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap' rel='stylesheet')
-  link(href='https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap' rel='stylesheet')
+  link(rel='stylesheet' href='/css/icomoon.css')
   link(rel='stylesheet' href='/css/style.css')
-
-  // Required for Previews and Experiments
-  script(src="//code.jquery.com/jquery-1.11.3.min.js")
   script
     = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
   script(src="//static.cdn.prismic.io/prismic.min.js")
-  script(data-ad-client='ca-pub-3963574347137004', async='', src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+  script(src='/js/jquery.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/main.js')
 
